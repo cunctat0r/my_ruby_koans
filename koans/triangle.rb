@@ -15,6 +15,11 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  raise TriangleError, "One of sizes has zero or negative length" if (a <= 0) || (b <= 0) || (c <= 0)
+  if (a >= b + c) || (b >= a + c) || (c >= b + a)
+    raise TriangleError, "Each size should be less than sum of two others"
+  end
+
   if (a == b) && (b == c) 
     return :equilateral
   elsif (a == b) || (a == c) || (b == c)
