@@ -14,7 +14,7 @@ class AboutToStr < Neo::Koan
   end
 
   def test_normally_objects_cannot_be_used_where_strings_are_expected
-    assert_raise(NoMethodError) do
+    assert_raise(TypeError) do
       File.exist?(CanNotBeTreatedAsString.new)
     end
   end
@@ -37,7 +37,7 @@ class AboutToStr < Neo::Koan
   end
 
   def test_to_str_allows_objects_to_be_treated_as_strings
-    assert_equal true, File.exist?(CanBeTreatedAsString.new)
+    assert_equal false, File.exist?(CanBeTreatedAsString.new)
   end
 
   # ------------------------------------------------------------------
